@@ -1,0 +1,11 @@
+<%= @group.name %>
+
+<% @group_users.each do |users| %>
+<%= users.user.email %>
+<% end %>
+
+<%= form_for GroupUser.new do |f| %>
+	<%= f.hidden_field :user_id, value: 1%>
+	<%= f.hidden_field :group_id, value: @group.id%>
+	<%= f.submit %>
+	<% end %>
